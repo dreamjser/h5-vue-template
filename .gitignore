@@ -1,0 +1,20 @@
+node_modules/
+dist/
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+yarn.lock
+package-lock.json
+
+.tmp
+.project
+
+src/portal/single/routers.js
+src/portal/multiple
+.eslintcache
