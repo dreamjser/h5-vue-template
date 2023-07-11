@@ -20,7 +20,7 @@ const router = createRouter({
   routes: [...homeRoutes, ...routes],
 })
 
-router.afterEach((route) => {
+router.afterEach((route: any) => {
   if (route.name) {
     document.body.setAttribute('data-page', route.name)
   }

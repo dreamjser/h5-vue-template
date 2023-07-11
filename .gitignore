@@ -11,10 +11,8 @@ dist/
 
 yarn.lock
 package-lock.json
-
+pnpm-lock.yaml
 .tmp
 .project
 
-src/portal/single/routers.js
-src/portal/multiple
 .eslintcache
