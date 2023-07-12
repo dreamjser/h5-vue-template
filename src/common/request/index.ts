@@ -1,6 +1,6 @@
 import { getGlobalAxios, getAxios, AllType } from '@dreamjser/request-axios'
 import { showLoading, hideLoading } from './loading'
-import { Toast } from 'antd-mobile'
+import { Toast } from 'vant'
 
 const axiosInstance = getGlobalAxios({
   timeout: 30000,

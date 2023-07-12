@@ -70,10 +70,10 @@ export default {
       }
       let S = '' //返回值
       let p = 0 //字符位置指针
-      let m = cash.length % 4 //取模
+      const m = cash.length % 4 //取模
 
       // 四位一组得到组数
-      let k =
+      const k =
         m > 0 ? Math.floor(cash.length / 4) + 1 : Math.floor(cash.length / 4)
       // 外层循环在所有组中循环
       // 从左到右 高位到低位 四位一组 逐组处理
@@ -84,12 +84,12 @@ export default {
           L = m
         }
         // 得到一组四位数 最高位组有可能不足四位
-        let s = cash.substring(p, p + L)
-        let l = s.length
+        const s = cash.substring(p, p + L)
+        const l = s.length
 
         // 内层循环在该组中的每一位数上循环 从左到右 高位到低位
         for (let j = 0; j < l; j++) {
-          let n = parseInt(s.substring(j, j + 1))
+          const n = parseInt(s.substring(j, j + 1))
           if (n == 0) {
             if (
               j < l - 1 &&
@@ -134,7 +134,7 @@ export default {
           if (i >= 2) {
             break
           }
-          let intValue = parseInt(cash.charAt(i))
+          const intValue = parseInt(cash.charAt(i))
           switch (i) {
             case 0: {
               if (intValue != 0) {

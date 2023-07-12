@@ -2,12 +2,6 @@
 
 module.exports = {
   root: true,
-  parser: "vue-eslint-parser",
-  parserOptions: {
-    parser: '@babel/eslint-parser',
-    sourceType: "module",
-    requireConfigFile: false
-  },
   env: {
     browser: true,
   },
@@ -15,11 +9,12 @@ module.exports = {
     'eslint:recommended',
     'plugin:prettier/recommended',
     'plugin:vue/recommended',
+    "@vue/typescript/recommended",
     'prettier',
   ],
   globals: {
-    App: false,
-    GLOBAL_CONFIG: false
+    App: 'readonly',
+    GLOBAL_CONFIG: 'readonly'
   },
   // required to lint *.vue files
   plugins: [

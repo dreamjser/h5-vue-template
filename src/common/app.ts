@@ -1,9 +1,7 @@
-import format from './utils/format'
-import regexp from './utils/regexp'
+import request from "./request"
 
 const App = {
-  format,
-  regexp,
+  request,
 }
 
 window.App = App

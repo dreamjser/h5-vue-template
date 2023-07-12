@@ -1,19 +1,19 @@
-import { Toast } from 'antd-mobile'
+import { showLoadingToast, closeToast	 } from 'vant'
 
 let loadingCount = 0
 
 export const showLoading = () => {
   loadingCount++
-  Toast.show({
+  showLoadingToast({
     duration: 0,
-    icon: 'loading',
-    content: '加载中…',
+    message: '加载中...',
+    forbidClick: true,
   })
 }
 
 export const hideLoading = () => {
   loadingCount--
   if (loadingCount <= 0) {
-    Toast.clear()
+    closeToast()
   }
 }

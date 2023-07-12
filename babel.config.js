@@ -7,10 +7,5 @@ module.exports = {
   ],
   plugins: [
     ['@babel/plugin-transform-runtime'],
-    ['import', {
-      libraryName: 'vant',
-      libraryDirectory: 'es',
-      style: true
-    }, 'vant']
   ]
 }

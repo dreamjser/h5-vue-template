@@ -10,7 +10,7 @@ module.exports = {
   devPort: '3002',
   proxyTable: {
     '/api': {
-      target: 'http://localhost:4001',
+      target: 'http://localhost:4003/',
       changeOrigin: true
     }
   },

@@ -4,8 +4,8 @@
   "description": "a mobile bank project develop of vue",
   "main": "index.js",
   "scripts": {
-    "dev:single": "cli-dev-s --framework=vue",
-    "dev:multiple": "cli-dev-m --framework=vue",
+    "dev:single": "npm run serve & cli-dev-s --framework=vue",
+    "dev:multiple": "npm run serve & cli-dev-m --framework=vue",
     "build:single": "npm run clean && cli-build-s --framework=vue",
     "build:multiple": "npm run clean && cli-build-m --framework=vue",
     "create": "cli-create --framework=vue",
