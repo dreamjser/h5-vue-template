@@ -1,5 +1,4 @@
 import request from "./request"
-
 const App = {
   request,
 }
