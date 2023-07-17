@@ -4,7 +4,6 @@
 
 <script lang="ts" setup>
 import _ from 'lodash'
-const a = '1'
 
 console.log(_.isEmpty({}))
 </script>
