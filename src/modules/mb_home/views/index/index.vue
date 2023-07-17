@@ -3,15 +3,10 @@
 </template>
 
 <script lang="ts" setup>
-App.request({
-  url: 'login',
-})
-  .then((r: unknown) => {
-    console.log(r, '11')
-  })
-  .catch((error: unknown) => {
-    console.log(error, '99')
-  })
+import _ from 'lodash'
+const a = '1'
+
+console.log(_.isEmpty({}))
 </script>
 
 <style lang="less">
