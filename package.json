@@ -25,6 +25,7 @@
     "@dreamjser/request-axios": "^1.0.4",
     "axios": "^1.2.1",
     "core-js": "^3.26.1",
+    "lodash": "^4.17.21",
     "pinia": "^2.1.4",
     "vant": "^4.5.0",
     "vue": "^3.3.4",
