@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./tmp",
+    "outDir": "./.tmp",
     "paths": {
       "@/*": [
         "src/*"
@@ -28,5 +28,5 @@
     "typeRoots": ["./node_modules/@types", "./typings"]
   },
   "exclude": ["node_modules", ".tmp"],
-  "include": ["src/**/*.ts", "src/**/*.vue", "typings/*.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx",  "src/**/*.vue", "typings/*.d.ts"],
 }
