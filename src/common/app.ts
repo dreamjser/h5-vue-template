@@ -1,6 +1,6 @@
-import request from "./request"
-const App = {
+import request from './request'
+const app = {
   request,
 }
 
-window.App = App
+window.App = app
