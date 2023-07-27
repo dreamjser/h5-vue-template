@@ -1,11 +1,11 @@
 <template>
-  <div>1999</div>
+  <div>
+    <Button>12</Button>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import _ from 'lodash'
-
-console.log(_.isEmpty({}))
+import { Button } from 'vant'
 </script>
 
 <style lang="less">

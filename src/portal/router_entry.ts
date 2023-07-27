@@ -1,11 +1,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import routes from '@tmp/routers'
+import { ROOT_REDIRECT } from '@/common/constant'
 
 const homeRoutes = [
   {
     name: 'home',
     path: '/',
-    redirect: '/mb_home/index/index',
+    redirect: ROOT_REDIRECT,
     meta: {
       title: '首页',
       needLogin: false,
@@ -18,16 +19,6 @@ const homeRoutes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [...homeRoutes, ...routes],
-})
-
-router.afterEach((route: any) => {
-  if (route.name) {
-    document.body.setAttribute('data-page', route.name)
-  }
-
-  if (route.meta.title) {
-    document.title = route.meta.title
-  }
 })
 
 export default router
