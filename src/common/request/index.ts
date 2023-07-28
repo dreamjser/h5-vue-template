@@ -17,14 +17,6 @@ const responseHook = (reslove: any, reject: any, res: any) => {
 
   !config.slint && setTimeout(hideLoading, 100)
 
-  if (res.status < 200 && res.status >= 400) {
-    Toast.show({
-      icon: 'fail',
-      content: '网络请求失败',
-    })
-    return
-  }
-
   if (errorCode !== '0') {
     if (config.publicError) {
       Toast.show({

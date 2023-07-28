@@ -1,19 +1,17 @@
-import { showLoadingToast, closeToast	 } from 'vant'
+import LoadingToast from '@dreamjser/h5-loading-toast'
+
+const loading = new LoadingToast()
 
 let loadingCount = 0
 
 export const showLoading = () => {
   loadingCount++
-  showLoadingToast({
-    duration: 0,
-    message: '加载中...',
-    forbidClick: true,
-  })
+  loading.show()
 }
 
 export const hideLoading = () => {
   loadingCount--
   if (loadingCount <= 0) {
-    closeToast()
+    loading.hide()
   }
 }
