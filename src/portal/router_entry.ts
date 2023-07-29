@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import routes from '@tmp/routers'
-import { ROOT_REDIRECT } from '@/common/constant'
+import { ROOT_REDIRECT } from '@/common/utils/constant'
 
 const homeRoutes = [
   {

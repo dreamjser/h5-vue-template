@@ -6,6 +6,10 @@
 
 <script lang="ts" setup>
 import { Button } from 'vant'
+
+App.interface.toast({
+  message: '1',
+})
 </script>
 
 <style lang="less">

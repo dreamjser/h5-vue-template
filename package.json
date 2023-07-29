@@ -33,6 +33,7 @@
     "@dreamjser/h5-loading-toast": "^1.0.0",
     "@dreamjser/request-axios": "^1.0.5",
     "core-js": "^3.31.1",
+    "element-plus": "^2.3.8",
     "lodash": "^4.17.21",
     "pinia": "^2.1.4",
     "vant": "^4.6.2",
