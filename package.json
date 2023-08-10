@@ -6,8 +6,8 @@
   "scripts": {
     "dev:single": "npm run serve & cli-dev-s --framework=vue",
     "dev:multiple": "npm run serve & cli-dev-m --framework=vue",
-    "build:s-test": "npm run clean && cli-build-s --env=sit --framework=react all",
-    "build:m-test": "npm run clean && cli-build-m --env=sit --framework=react all",
+    "build:s-test": "npm run clean && cli-build-s --env=sit --framework=vue all",
+    "build:m-test": "npm run clean && cli-build-m --env=sit --framework=vue all",
     "create": "cli-create --framework=vue",
     "report": "webpack-bundle-analyzer ./dist/stats.json",
     "serve": "node ./json_server/server.js",
