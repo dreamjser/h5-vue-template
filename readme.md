@@ -1,14 +1,12 @@
 
-# 各个环境线上地址
-
-```
-dev: http://47.96.161.226:8888/dev/vue/
-sit: http://47.96.161.226:8888/sit/vue/
-uat: http://47.96.161.226:8888/uat/vue/
-```
-
+# 使用教程
 
 ## 1、安装npm依赖
+
+```
+// 推荐
+pnpm i
+```
 
 ```
 npm i
@@ -18,20 +16,33 @@ npm i
 yarn
 ```
 
-## 2、npm命令
+安装npm依赖后回触发 `"prepare": "git init && chmod ug+x .husky/* && husky install",` 脚本，初始化git并且进行husky的install
 
-### 2.1 创建新页面
+
+### 2 创建新页面
+
+npm run create [path] [title]
+
+- path 页面路径，必须为三级目录，必填
+- title 页面标题，非必填
 
 ```
-// 以mb_开头，强制三级目录
-npm run create mb_demo/demo/index
+// 前缀mb_需要在app.config.js中配置`modulePrefix
+npm run create mb_demo/demo/index 标题
 ```
 
-### 2.2 本地运行单页面工程
+页面创建成功后会在一级目录下生成conf.json，里面自动配置了模块的页面路径和标题等信息。
+
+## 3 同时支持单页面/多页面构建
+
+脚手架同时支持单页面和多页面的页面构建，以满足不同场景的需求。
+脚手架文档可参考 https://github.com/dreamjser/h5-webpack-cli
+
+### 3.1 本地运行单页面工程
 
 ```
 // 运行所有模块
-npm run dev:single
+npm run dev:single all
 ```
 
 ```
@@ -39,11 +50,13 @@ npm run dev:single
 npm run dev:single mb_login,mb_transfer
 ```
 
-### 2.3 本地运行多页面工程
+浏览器访问地址: `http://localhost:xxxx/#/mb_login/index/index`
+
+### 3.2 本地运行多页面工程
 
 ```
 // 运行所有模块
-npm run dev:multiple
+npm run dev:multiple all
 ```
 
 ```
@@ -51,34 +64,39 @@ npm run dev:multiple
 npm run dev:multiple mb_login,mb_transfer
 ```
 
-### 2.4 打开analyzer报告
+浏览器访问地址: `http://localhost:xxxx/mb_login/index/index.html`
+
+### 3.3 构建单页面工程
+
+可以根据项目需要添加不同环境的构建命令
+
+```
+npm run build:s-test
+```
+
+### 3.4 构建多页面工程
+
+可以根据项目需要添加不同环境的构建命令
+
+```
+npm run build:m-test
+```
+
+## 4 analyzer报告
 
 ```
 npm run report
 ```
 
-### 3、目录结构
+### 5 目录结构
 
 ```
-├─bin
-|  ├─build.multiple.js        ----------- 构建多页面任务文件
-|  ├─build.single.js          ----------- 构建单页面任务文件
-|  |-create.js                ----------- 创建新页面任务文件
-|  |-dev.multiple.js          ----------- 本地多页面任务文件
-|  ├─dev.single.js            ----------- 本地单页面任务文件
-|  ├─help.dev.js              ----------- 本地构建工具函数
-|  ├─help.prod.js             ----------- 生产构建工具函数
-|
-├─build
-|  ├─utils.js                 ----------- 构建相关工具函数
-|  ├─webpack.base.conf.js     ----------- 基础webpack环境配置
-|  ├─webpack.dev.conf.js      ----------- 开发环境webpack配置
-|  ├─webpack.prod.conf.js     ----------- 生产环境webpack配置
-|
-├─config
+├─.husky                      ----------- husky配置
+├─.tmp                        ----------- 脚手架自动生成的路由文件
+├─config(可根据环境添加相应的环境配置)
 |  ├─dev.env.js               ----------- 本地环境配置
 |  ├─sit.env.js               ----------- 测试环境配置
-|  ├─uat.env.js               ----------- 预生产环境配置
+|  ├─prod.env.js              ----------- 生产环境配置
 |  ├─develop.env.js           ----------- 开发环境配置
 |
 ├─dist
@@ -87,64 +105,31 @@ npm run report
 |
 ├─src
 |  ├─common                   ----------- 公共处理
-|  |     |-api                ----------- 请求接口地图
+|  |     |-app                ----------- 全局app对象挂载文件
 |  |     ├─components         ----------- 公共组件
 |  |     ├─request            ----------- 公共请求封装
 |  |     ├─store              ----------- 状态管理
 |  |     ├─styles             ----------- 公共样式
 |  |     ├─utils              ----------- 工具库
-|  |     ├─app.js             ----------- 公共样式
-|  |
-|  ├─components               ----------- 业务组件
 |  |
 |  ├─modules                  ----------- 业务模块
 |  |
-|  ├─portal                   ----------- 入口
-|  |     ├─single             ----------- 单页面入口
-|  |     ├─multiple           ----------- 多页面入口
+|  ├─portal                   ----------- 入口文件夹
 |  |
 |  ├─template                 ----------- 模板
+|  ├
+|  ├─typings                  ----------- ts类型文件
 |
-|
-├─babel.config.js             ----------- babel配置文件，ES6语法编译等配置
 ├─.editorconfig               ----------- 定义代码格式
+├─babel.config.js             ----------- babel配置文件
 ├─.eslintrc.js                ----------- 定义eslint的plugins,extends,rules
 ├─.gitignore                  ----------- git上传需要忽略的文件格式
-├─postcss.config.js           ----------- postcss配置文件
-|-commitlint.config.js        ----------- postcss配置文件
+├─.lintstagedrc               ----------- lint-stage配置文件
+|-commitlint.config.js        ----------- commitlint配置文件
 ├─package.json                ----------- 项目信息、项目依赖管理
+├─tsconfig.json               ----------- ts配置文件
 ├─README.md                   ----------- 项目文档（简介、运行步骤、注意事项）
 ├─...
 
 ```
 
-5、权限配置
-
-mb_xxx/conf.json中可以通过属性来配置权限
-
-```
-{
-  "index": {
-    "index": {
-      "title": "转账管理"
-    }
-  },
-  "single": {
-    "index": {
-      "title": "单笔转账",
-      "checkTransfer": true,
-      "checkCard": true
-    },
-    "result": {
-      "title": "转账结果"
-    },
-    "confirm": {
-      "title": "转账确认"
-    }
-  }
-}
-```
-
-- needLogin: 默认不填写为需要登录，页面不需要登录时需要改成false
-- checkTransfer: 默认不写为不检查转账权限，需要检查转账权限改成true
-- checkCard: 默认不写为不检查是否有加挂卡，需要检查加挂卡权限改成true
