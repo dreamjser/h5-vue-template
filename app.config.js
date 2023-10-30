@@ -6,7 +6,7 @@ module.exports = {
     '@': path.resolve(__dirname, 'src'),
     '@tmp': path.resolve(__dirname, '.tmp'),
   },
-  outputPath: 'vueapp',
+  outputPath: 'dist',
   modulePrefix: 'mb_',
   devPort: '3002',
   proxyTable: {
