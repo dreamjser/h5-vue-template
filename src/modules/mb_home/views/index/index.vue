@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button>12</Button>
+    <Button @click="onClick">12</Button>
     <PasswordInput />
     <Dialog />
   </div>
@@ -9,9 +9,9 @@
 <script lang="ts" setup>
 import { Button, PasswordInput, Dialog } from 'vant'
 
-App.interface.toast({
-  message: '1',
-})
+function onClick() {
+  App.router.push('/mb_login/index/index')
+}
 </script>
 
 <style lang="less">

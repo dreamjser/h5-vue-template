@@ -1,7 +1,8 @@
 {
   "index": {
     "index": {
-      "title": ""
+      "title": "",
+      "needLogin": false
     }
   }
 }
