@@ -2,7 +2,7 @@ import router from '@/portal/router_entry'
 import { checkAuth } from './auth'
 
 export type RouterProps = {
-  params?: object
+  state?: object
   replace?: boolean
   query?: object
 }
@@ -35,8 +35,8 @@ export const push = (pathname: string, opts: RouterProps) => {
     if (opts.query) {
       routerOpts.query = opts.query
     }
-    if (opts.params) {
-      routerOpts.params = opts.params
+    if (opts.state) {
+      routerOpts.params = opts.state
     }
 
     router.push(routerOpts)
