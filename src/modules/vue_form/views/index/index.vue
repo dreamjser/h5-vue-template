@@ -1,24 +1,27 @@
 <template>
-  <Form>
-    <CellGroup>
-      <Field
+  <div>
+    <div>
+      <input
         v-model="formData.name"
         label="用户名"
         placeholder="请输入用户名"
       />
-      <Field
+    </div>
+    <div>
+      <input
         v-model="formData.password"
         label="密码"
         placeholder="请输入密码"
       />
-      <Button type="primary" @click="onSubmit">提交</Button>
-    </CellGroup>
-  </Form>
+    </div>
+    <div>
+      <button @click="onSubmit">提交</button>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import { Form, CellGroup, Field, Button } from 'vant'
 
 const formData = reactive({
   name: '',
