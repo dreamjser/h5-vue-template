@@ -15,17 +15,19 @@
     "prepare": "git init && chmod ug+x .husky/* && husky install",
     "pre-commit": "lint-staged",
     "test": "cli-test --verbose",
-    "test:coverage": "cli-test --coverage"
+    "test:coverage": "cli-test --coverage",
+    "cypress:open": "cypress open"
   },
   "author": "dreamjser@gmail.com",
   "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
-    "@dreamjser/h5-webpack-cli": "^1.0.36",
+    "@dreamjser/h5-webpack-cli": "^1.0.38",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/vue": "^8.0.0",
     "@types/jest": "^29.5.8",
+    "cypress": "^13.5.1",
     "husky": "^8.0.3",
     "json-server": "^0.17.4",
     "lint-staged": "^13.3.0",
