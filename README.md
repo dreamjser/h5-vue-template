@@ -260,3 +260,8 @@ export const checkAuth = (pathname: string) => {
   return true
 }
 ```
+
+## 11.端到端测试
+
+通过脚手架选择使用端到端测试，根目录会生成cypress文件夹，在cypress/e2e下创建xx.cy.js编写用例。
+运行`npm run cypress:open`打开测试平台
