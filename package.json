@@ -21,7 +21,6 @@
   "author": "dreamjser@gmail.com",
   "license": "ISC",
   "devDependencies": {
-    "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
     "@dreamjser/h5-webpack-cli": "^1.0.38",
     "@testing-library/jest-dom": "^6.1.4",
