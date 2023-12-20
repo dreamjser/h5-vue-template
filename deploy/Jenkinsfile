@@ -44,7 +44,7 @@ node {
         echo '已删除镜像${image_name}:${imageId}'
       fi
 
-      docker run -itd -p 8021:8021 --name ${container_name} ${image_name}:${Tag}
+      docker run -itd -p 8022:8022 --name ${container_name} ${image_name}:${Tag}
     """
   }
 }
