@@ -40,8 +40,14 @@ node {
       echo 'Tag: ${Tag}'
       if [ "${imageId}" != "${Tag}" ]
       then
-        docker rmi ${image_name}:${imageId}
-        echo '已删除镜像${image_name}:${imageId}'
+        try{
+          sh """
+            docker rmi ${image_name}:${imageId}
+            echo '已删除镜像${image_name}:${imageId}'
+          """
+        }catch(exc) {
+          echo '无镜像删除'
+        }
       fi
 
       docker run -itd -p 8021:8021 --name ${container_name} ${image_name}:${Tag}
