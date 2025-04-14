@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import routes from '@tmp/routers'
 import { ROOT_REDIRECT } from '@/common/utils/constant'
+import { isQiankun, micoAppName } from './micoApp'
 
 const homeRoutes = [
   {
@@ -20,9 +21,8 @@ const homeRoutes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(isQiankun ? `/${micoAppName}` : '/'),
   routes: homeRoutes as any,
-  // routes: [...homeRoutes, ...routes],
 })
 
 export default router
