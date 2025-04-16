@@ -140,17 +140,12 @@ opts参数可以设置axios的配置，配置同axios，同时新增了自定义
 ```
 {
   // 是否显示loading，默认true
-  slient?:
-  // 是否上传文件，默认false，为true则默认使用FormData数据
-  isUpload?: boolean
+  loading?:
   // 传参数据，不区分method
   data?: object
-  // 是否显示公共错误提示，默认true，为false可以在调用时捕获异常做处理
-  publicError?: boolean
-  // 请求发起前hook
-  requestHook?: (opts: AllType) => any
-  // 请求返回数据hook
-  responseHook?: (reslove: any, reject: any, data: any) => void
+  // 是否显示自身的提示，默认false
+  showOwnError?: boolean
+
 }
 
 ```
@@ -261,7 +256,55 @@ export const checkAuth = (pathname: string) => {
 }
 ```
 
+## 10.单元测试
+
+脚手架集成jest测试框架，测试案例需在src目录下，新建__test__文件夹，并创建xxx.test.tsx?。测试执行脚本npm run test/npm run test:coverage
+
+示例如下：
+
+```
+import React, {forwardRef} from 'react'
+import { render, act, fireEvent } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import Modal from '../index'
+
+const UModal = forwardRef(Modal)
+const children = '这是modal内容'
+
+
+describe('测试Modal组件', () => {
+  test('初始隐藏状态测试', () => {
+    const {queryByText} = render(<UModal>{children}</UModal>)
+    const element = queryByText(children)
+    expect(element).not.toBeInTheDocument()
+  })
+
+  test('调用toogle显示状态测试', () => {
+    const modalRef: any = React.createRef();
+    const {queryByText} = render(<UModal ref={modalRef}>{children}</UModal>)
+    const toogle = jest.spyOn(modalRef.current, 'toogle');
+    act(() => {
+      modalRef.current.toogle()
+    })
+
+    expect(toogle).toHaveBeenCalled();
+    const element = queryByText(children)
+    expect(element).toBeInTheDocument()
+
+    fireEvent.click(element as HTMLElement)
+    expect(element).not.toBeInTheDocument()
+  })
+
+})
+
+
+```
+
 ## 11.端到端测试
 
 通过脚手架选择使用端到端测试，根目录会生成cypress文件夹，在cypress/e2e下创建xx.cy.js编写用例。
 运行`npm run cypress:open`打开测试平台
+
+## 12.微前端设置
+
+微应用不需要新增public_path文件，只需要在config/xx.env.js中设置PUBLIC_PATH即可
